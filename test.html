@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fun Event Memories</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <style>
+    body {
+      background-color: #f8fafc;
+    }
+    header h1 {
+      text-align: center;
+      margin-top: 2rem;
+      color: #333;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem 0;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Popup overlay */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .popup img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    .popup .close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <nav class="container-fluid">
+    <ul><li><strong>Fun Event Memories</strong></li></ul>
+    <ul>
+      <li><a href="#">หน้าแรก</a></li>
+      <li><a href="#gallery">อัลบั้ม</a></li>
+      <li><a href="#contact" role="button">ติดต่อ</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <header>
+      <h1>Fun Event Memories</h1>
+      <p style="text-align:center; color:#666">
+        รวมภาพความทรงจำแสนสนุกจากงานกิจกรรมต่าง ๆ
+      </p>
+    </header>
+
+    <section id="gallery" class="gallery">
+      <img src="img/2.jpg" alt="กิจกรรม 1">
+      <img src="https://source.unsplash.com/featured/?concert,crowd" alt="กิจกรรม 2">
+      <img src="https://source.unsplash.com/featured/?party,lights" alt="กิจกรรม 3">
+      <img src="https://source.unsplash.com/featured/?school,event" alt="กิจกรรม 4">
+      <img src="https://source.unsplash.com/featured/?community,celebration" alt="กิจกรรม 5">
+      <img src="https://source.unsplash.com/featured/?team,fun" alt="กิจกรรม 6">
+      <img src="https://source.unsplash.com/featured/?friends,event" alt="กิจกรรม 7">
+      <img src="https://source.unsplash.com/featured/?festival,color" alt="กิจกรรม 8">
+      <img src="https://source.unsplash.com/featured/?performance,stage" alt="กิจกรรม 9">
+      <img src="https://source.unsplash.com/featured/?sports,team" alt="กิจกรรม 10">
+      <img src="https://source.unsplash.com/featured/?youth,activities" alt="กิจกรรม 11">
+      <img src="https://source.unsplash.com/featured/?celebration,group" alt="กิจกรรม 12">
+    </section>
+  </main>
+
+  <!-- Popup for full image -->
+  <div class="popup" id="popup">
+    <span class="close" id="closeBtn">&times;</span>
+    <img id="popupImg" src="" alt="Full image">
+  </div>
+
+  <section aria-label="Subscribe example">
+    <div class="container">
+      <article>
+        <hgroup>
+          <h2>ติดตามกิจกรรมใหม่ ๆ</h2>
+          <h3>กรอกอีเมลเพื่อรับข่าวสารล่าสุด</h3>
+        </hgroup>
+        <form class="grid">
+          <input type="text" id="firstname" name="firstname" placeholder="ชื่อของคุณ" aria-label="ชื่อของคุณ" required />
+          <input type="email" id="email" name="email" placeholder="อีเมลของคุณ" aria-label="อีเมลของคุณ" required />
+          <button type="submit" onclick="event.preventDefault()">สมัคร</button>
+        </form>
+      </article>
+    </div>
+  </section>
+
+  <footer class="container">
+    <small>
+      <a href="#">เกี่ยวกับเรา</a> • <a href="#">ติดต่อ</a>
+    </small>
+  </footer>
+
+  <script>
+    const popup = document.getElementById('popup');
+    const popupImg = document.getElementById('popupImg');
+    const closeBtn = document.getElementById('closeBtn');
+
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        popup.style.display = 'flex';
+        popupImg.src = img.src;
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) {
+        popup.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

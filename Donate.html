@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+ <meta name="description" content="มัสยิดบ้านสมเด็จ | ศูนย์รวมศรัทธาแห่งชุมชนมุสลิมและการเรียนรู้ศาสนาอิสลามในกรุงเทพฯ">
+  <!-- ใช้ PicoCSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <!-- ลิงก์ไปยังไฟล์ CSS แยก -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="img/logo.png" type="image/png">
+</head>
+  <nav class="container-fluid">
+    <ul>
+      <li><div class="logo-area">
+      <img src="https://cdn-icons-png.flaticon.com/512/4221/4221820.png" alt="logo" />
+      <div class="text-area">
+        <h2>มัสยิดบ้านสมเด็จ</h2>
+        <p>Bansomdet Mosque</p>
+      </div>
+    </div></li>
+    </ul>
+    <ul>
+      <li><a href="index.html">หน้าหลัก</a></li>
+      <li><a href="#about">เกี่ยวกับเรา</a></li>
+      <li><a href="PrayerTimes.html">ตารางเวลาละหมาด</a></li>
+      <li><a href="News.html">ข่าวสาร</a></li>
+      <li><a href="#contact">ติดต่อ</a></li>
+      <li><a href="Donate.html" role="button">💰 บริจาค</a></li>
+    </ul>
+  </nav>
+
+      <header class="hero">
+    <div class="hero-content">
+    <section class="total-section">
+        <h2 class="section-title-head">✨ ยอดรวมเงินบริจาคสะสม ✨</h2>
+        <h2 class="section-title-head">1,234,567.89 </h2>
+        <br>
+        <p class="description">ขอขอบคุณผู้มีจิตศรัทธาทุกท่าน เงินทุกบาทจะนำไปใช้เพื่อพัฒนาศาสนสถานและกิจกรรมชุมชน</p>
+    </section>
+    </div>
+  </header>
+  <body>
+    <main class="container">
+<div class="donation-container">
+    <section class="payment-section">
+        <h2 class="section-title">1. ขั้นตอนการโอนเงิน</h2>
+        
+        <div class="payment-card">
+            <h3 class="card-title">ช่องทางการบริจาคหลัก (พร้อมเพย์ / QR Code)</h3>
+            
+            <div class="qr-code-area">
+                <img id="qrCodeImage" src="img/qr.png" alt="QR Code ธนาคารกสิกรไทย" class="qr-image">
+                <p class="account-info">บัญชี: มัสยิดนูรุลอิสลาม</p>
+                <p class="account-info">เลขที่บัญชี: **XXX-X-XXXXX-X**</p>
+                
+                <div class="bank-switcher">
+                    <button onclick="changeQR('kbank')" class="active">กสิกรไทย</button>
+                    <button onclick="changeQR('bbl')">กรุงเทพ</button>
+                </div>
+            </div>
+            
+            <p class="warning">**กรุณาบันทึกสลิปการโอนเงิน เพื่อใช้ในการยืนยันในขั้นตอนที่ 2**</p>
+        </div>
+    </section>
+    
+    <section class="form-section">
+        <h2 class="section-title">2. ยืนยันข้อมูลการบริจาคและแนบสลิป</h2>
+        
+        <form class="donation-form" action="/submit-donation" method="POST" enctype="multipart/form-data">
+            
+            <div class="form-group">
+                <label for="amount">จำนวนเงินที่โอน (บาท) *</label>
+                <input type="number" id="amount" name="amount" required min="1">
+            </div>
+            
+            <div class="form-group">
+                <label for="purpose">วัตถุประสงค์การบริจาค *</label>
+                <select id="purpose" name="purpose" required>
+                    <option value="">-- กรุณาเลือก --</option>
+                    <option value="maintenance">บำรุงรักษาสถานที่และซ่อมแซมอาคาร</option>
+                    <option value="education">สนับสนุนกิจกรรมการศึกษาศาสนา</option>
+                    <option value="general">บริจาคทั่วไป (ตามแต่เจตนา)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="name">ชื่อ-นามสกุล (สำหรับบันทึกทะเบียนผู้บริจาค) *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">เบอร์โทรศัพท์ (ไม่บังคับ)</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            
+            <div class="form-group file-upload-group">
+                <label for="slip">แนบสลิปการโอนเงิน (JPG, PNG, PDF) *</label>
+                <input type="file" id="slip" name="slip" accept=".jpg, .jpeg, .png, .pdf" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="dua">คำอธิษฐาน (ดุอาอ์)(ไม่บังคับ)</label>
+                <textarea id="dua" name="dua" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <input type="checkbox" id="consent" name="consent" required>ข้าพเจ้ายอมรับว่าข้อมูลที่ให้ไว้เป็นความจริงและถูกต้อง
+                <button type="button" class="secondary-button" id="taxReceiptBtn" data-target="taxReceiptModal" >💳 ขอใบลดหย่อน</button></a>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="submit-button">ส่งข้อมูลและยืนยันการบริจาค</button>
+            </div>
+
+            <div class="form-actions">
+                <button type="reset" class="reset-button">ยกเลิก</button>
+            </div>
+        </form>
+    </section>
+    
+            </div>
+        </main>
+        <div id="taxReceiptModal" class="modal" aria-hidden="true">
+  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="taxModalTitle">
+    <button class="modal-close" id="modalClose" aria-label="ปิด">&times;</button>
+    <h3 id="taxModalTitle">ขอใบลดหย่อนภาษี</h3>
+    <p>กรุณากรอกข้อมูลสำหรับออกใบลดหย่อน (จะส่งไปยังอีเมลผู้ดูแล)</p>
+
+    <form id="taxForm">
+      <div class="form-group">
+        <label for="tax_name">ชื่อ-นามสกุล</label>
+        <input id="tax_name" name="tax_name" type="text">
+      </div>
+      <div class="form-group">
+        <label for="tax_id">เลขประจำตัวผู้เสียภาษี (ถ้ามี)</label>
+        <input id="tax_id" name="tax_id" type="text">
+      </div>
+      <div class="form-group">
+        <label for="tax_address">ที่อยู่สำหรับออกใบลดหย่อน</label>
+        <textarea id="tax_address" name="tax_address" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="tax_email">อีเมลสำหรับรับเอกสาร</label>
+        <input id="tax_email" name="tax_email" type="email">
+      </div>
+      <div class="form-group">
+        <label for="tax_slip">แนบสำเนาสลิป/หลักฐาน (ถ้ามี)</label>
+        <input id="tax_slip" name="tax_slip" type="file" accept=".jpg,.jpeg,.png,.pdf">
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="submit-button">ส่งคำขอใบลดหย่อน</button>
+        <button type="reset">ยกเลิก</button>
+      </div>
+    </form>
+  </div>
+</div>
+<button id="backToTop">▲</button>
+<script src="script.js"></script>
+</body>
+  <footer class="footer">
+    <div class="container grid">
+      <div>
+        <h4>มัสยิดบ้านสมเด็จ</h4>
+        <p>123 ถนนอิสรภาพ แขวงบ้านสมเด็จ เขตธนบุรี กรุงเทพฯ 10600<br>โทร: 02-123-4567<br>อีเมล: info@bansomdetmosque.or.th</p>
+      </div>
+      <div>
+        <h4>ลิงก์ด่วน</h4>
+        <ul>
+          <li><a href="#">เกี่ยวกับเรา</a></li>
+          <li><a href="#">ข่าวสาร</a></li>
+          <li><a href="PrayerTimes.html">ตารางเวลาละหมาด</a></li>
+          <li><a href="#">ติดต่อเรา</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>แผนที่</h4>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.882795664193!2d100.485!3d13.728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDQzJzQwLjgiTiAxMDDCsDI5JzA2LjAiRQ!5e0!3m2!1sth!2sth!4v0000000000000" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      <div>
+        <h4>ติดตามเรา</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">LINE</a></li>
+        
+      </div>
+      <div>
+        <form action="" novalidate>
+          <label for="email"><h4>Enter your email:</h4></label>
+          <input type="email" id="email" name="email" required><br><br>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
+    <div class="text-box">
+    © 2025 มัสยิดบ้านสมเด็จ | Bansomdet Mosque
+    </div>
+  </footer>
+</html>

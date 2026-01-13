@@ -1,0 +1,657 @@
+:root {
+  --primary-color: #0b1b3a;
+  --accent-color: #ffc60c;
+  --light-bg: #e9e0d4;
+}
+
+body {
+  background-color: var(--light-bg);
+  color: #ffffff;
+  font-family: 'Prompt', 'Noto Sans Thai', sans-serif;
+}
+
+h2{
+  color: var(--primary-color);
+  text-align: center;
+}
+
+button, a[role="button"] {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  border: none;
+  padding: 0.8rem 1.3rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover, a[role="button"]:hover {
+  background-color: #e6b800;
+}
+/* แถบนำทางNav */
+nav {
+  background: #00001a;
+  background: linear-gradient(90deg,rgba(0, 0, 26, 1) 0%, rgba(9, 9, 121, 1) 31%, rgba(0, 212, 255, 1) 100%);
+  color: white;
+  padding: 0rem 1.5rem; /* ปรับให้แถวเตี้ยลง */
+}
+
+nav a {
+  color: rgb(255, 255, 255);
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-area img {
+  width: 50px;
+  height: 50px;
+}
+
+.text-area h2 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #ffffff;
+}
+
+.text-area p {
+  margin: 0;
+  font-size: 0.8em;
+  color: gray;
+}
+
+/* ส่วน Hero */
+.hero {
+  background: url('img/background.jpg') center/cover no-repeat;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(11, 27, 58, 0.6);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero p{
+  font-size: 1.25rem;
+  color: #ffffff;
+}
+
+.hero a {
+  margin-top: 10rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--light-bg);
+}
+
+/* โครงสร้างบุคลากร */
+.team-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 50px;
+  justify-items: center;
+  align-items: stretch;
+  margin-top: 40px;
+  padding: 2.5rem;
+}
+
+/* กล่องทีมงาน */
+.member-card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  image-rendering: optimizeQuality;
+}
+
+.member-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ส่วนหัว */
+.card-header {
+  padding: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+/* ส่วนเนื้อหา */
+.card-body {
+  padding: 20px;
+}
+
+.card-body h3 {
+  margin-bottom: 8px;
+  color: var(--primary-color);
+  font-size: 1.3rem;
+}
+
+.card-body p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* สีหัวกล่องแต่ละตำแหน่ง */
+.leader-card .card-header {
+  background: linear-gradient(135deg, #c0392b, #e74c3c);
+}
+
+.member-card:nth-child(2) .card-header {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+.member-card:nth-child(3) .card-header {
+  background: linear-gradient(135deg, #28a745, #218838);
+}
+
+/* About section */
+.about-section {
+  margin-top: 80px;
+  background-color: rgb(202, 186, 158);
+  border-radius: 15px;
+  padding: 3rem 2rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.about-section .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.about-section img {
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.about-section h1 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.about-section h3 {
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.about-section p {
+  color: #444;
+  line-height: 1.6;
+}
+
+/* News grid */
+.news h1{
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.news-card {
+  background: rgb(202, 186, 158);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.news-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Footer */
+footer h3, footer h4, footer p {
+  color: #ffffff;
+}
+
+.footer {
+  background: #00001a;
+  background: linear-gradient(90deg,rgba(0, 0, 26, 1) 0%, rgba(9, 9, 121, 1) 31%, rgba(0, 212, 255, 1) 100%);
+  color: var(--light-bg);
+  padding: 1.5rem 11rem;
+  margin-top: 1rem;
+}
+
+.footer a {
+  color: var(--accent-color);
+}
+
+.text-box {
+  text-align: center;
+  margin-top: 1rem;
+  background-color: #ffffff;
+  color: var(--primary-color);
+  padding: 1rem;
+  border-radius: 20px;
+  border: 6px solid #d4af37; /* แถบสีทองด้านซ้าย */
+  margin: 2rem auto;
+}
+
+/* prayer times page styles */
+.prayer-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background:rgba(9, 68, 141, 0.226);
+  display: block;
+  border: 5px solid rgba(255,255,255,0.3);
+}
+
+ header h1, header p, .highlight-widget { position: relative; z-index: 2; }
+.highlight-widget {
+      background: rgba(9, 68, 141, 0.226);
+      border: 5px solid rgba(255,255,255,0.3);
+      border-radius: 8px;
+      padding: 1rem;
+      display: inline-block;
+      color: white;
+      margin-top: 1rem;
+    }
+.highlight-widget table { width: 100%; text-align: center; color: white; }
+    .highlight-widget td, .highlight-widget th { padding: 0.3rem 0.5rem; }
+    .next-time {
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+      border-radius: 5px;
+      animation: blink 1.5s infinite alternate;
+    }
+    @keyframes blink { from {opacity: 1;} to {opacity: 0.6;} }
+    .monthly-table {
+      overflow-x: auto;
+      margin-top: 2rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.6rem;
+      text-align: center;
+    }
+    th {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    tr:nth-child(even) { background-color: #f4f4f4; }
+    tr.highlight-day { background-color: var(--highlight-bg); }
+    .controls {
+      text-align: right;
+      margin: 1rem 0;
+  }
+
+  .monthly-table table {
+    width: 100%;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.monthly-table tbody tr:hover {
+    background: #f2f2f2;
+}
+
+.today-highlight {
+    background: #fffae6 !important;
+    font-weight: bold;
+    border-left: 4px solid #ffb300;
+}
+  
+/* บริจาค */
+.donation-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.section-title {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    margin-top: 40px;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+.section-title-head {
+    color: var(--light-bg);
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 0 var(--accent-color);
+}
+
+/* ส่วนที่ 1: ยอดรวมสะสม */
+.total-section {
+  background: #00001a;
+  background: linear-gradient(90deg,rgba(0, 0, 26, 1) 0%, rgba(9, 9, 121, 1) 31%, rgba(0, 212, 255, 1) 100%);
+  text-align: center;
+  padding: 100px;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+.current-total {
+    font-size: 3.5em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 10px 0;
+    text-shadow: 1px 1px 0 var(--accent-color);
+}
+
+.description {
+    color: #555;
+    font-size: 1.1em;
+}
+
+/* ส่วนที่ 2: ช่องทางการโอนเงิน */
+.payment-card {
+    background-color: #FFF;
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.card-title {
+    color: var(--primary-color);
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+.qr-image {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    margin-bottom: 15px;
+    border: 5px solid var(--border-color);
+}
+
+.account-info {
+    font-size: 1.1em;
+    margin: 5px 0;
+}
+
+.warning {
+    color: red;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px dashed red;
+    border-radius: 5px;
+}
+
+/* ปุ่มสลับธนาคาร */
+.bank-switcher button {
+    background-color: var(--background-light);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 8px 15px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.bank-switcher button.active,
+.bank-switcher button:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* ส่วนที่ 3: แบบฟอร์มยืนยัน */
+.donation-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    background-color: #FFF;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    box-sizing: border-box; /* สำคัญเพื่อให้ padding ไม่ขยายความกว้าง */
+}
+
+/* ปุ่มส่งแบบฟอร์ม */
+.submit-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    background-color: #004d00;
+}
+
+.reset-button {
+    background-color: #ccc;
+    color: #333;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+/* ปรับให้รองรับไฟล์อัปโหลดในรูปแบบที่สวยงามขึ้น */
+.file-upload-group input[type="file"] {
+    border: 1px solid var(--primary-color);
+    padding: 10px;
+    background-color: #e6ffe6;
+}
+/* Pop up ใบลดหย่อน */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  overflow-y: auto;  /* ✅ ให้หน้าจอเลื่อนขึ้นลงได้ */
+  padding: 1rem;     /* ✅ กันขอบให้ไม่ชนขอบจอ */
+}
+.modal.open {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+  position: relative; /* ✅ ต้องมี เพื่อให้ปุ่มอ้างอิงกล่องนี้ */
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+}
+
+#backToTop {
+  position: fixed;
+  bottom: 5px;
+  right: 25px;
+  background: var(--accent-color);
+  color: var(--primary-color);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  display: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#backToTop.show {
+  display: inline-block;
+  opacity: 1;
+}
+
+#backToTop:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* NEWS */
+.news-section {
+  margin-top: 40px;
+  padding: 0 1rem;
+}
+
+.article-image {
+  display: block;
+  margin: auto;   /* จัดกึ่งกลาง */
+  width: 50vw;
+  height: 500px;
+  object-fit: cover;
+  border: 5px solid var(--accent-color);
+  border-radius: 5%;
+}
+.news-article {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.news-article h2{
+  color: var(--primary-color);
+  text-align: center;
+  text-decoration: underline;
+}
+
+.news-article p {
+  line-height: 2;
+}
+
+/* Gallery */
+.gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem 0;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Popup overlay */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .popup img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    .popup .close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+/*ปรับขนาดหน้าจอเล็ก */
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer {
+    padding: 1.5rem;
+    text-align: center;
+  }
+}
