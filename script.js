@@ -23,8 +23,8 @@ function initQRSwitcher() {
     if (btn) btn.classList.add('active');
 
     const map = {
-      kbank: { src: 'img/qr.png', alt: 'QR Code ธนาคารกสิกรไทย' },
-      bbl: { src: 'img/qr2.png', alt: 'QR Code ธนาคารกรุงเทพ' }
+      kbank: { src: '../img/qr.png', alt: 'QR Code ธนาคารกสิกรไทย' },
+      bbl: { src: '../img/qr2.png', alt: 'QR Code ธนาคารกรุงเทพ' }
     };
 
     if (map[bank]) {
@@ -118,7 +118,8 @@ function findNextPrayer(times) {
 }
 
 async function initPrayerTimes() {
-  if (!document.title.includes('ตารางเวลาละหมาด')) return;
+  const widget = document.querySelector('.highlight-widget');
+  if (!widget) return;
 
   try {
     const res = await fetch(PRAYER_API);
@@ -127,21 +128,25 @@ async function initPrayerTimes() {
 
     const { next, diff } = findNextPrayer(times);
     const text = document.querySelector('.highlight-widget p');
-    const cells = document.querySelectorAll('.highlight-widget table td');
 
     const th = {
-      Fajr: 'ซุบฮิ', Dhuhr: 'ดุฮ์ริ',
-      Asr: 'อัศริ', Maghrib: 'มัฆริบ', Isha: 'อิชาอ์'
+      Fajr: 'ซุบฮิ',
+      Dhuhr: 'ดุฮ์ริ',
+      Asr: 'อัศริ',
+      Maghrib: 'มัฆริบ',
+      Isha: 'อิชาอ์'
     };
 
     if (text) {
-      text.innerHTML = `<strong>เวลาถัดไป:</strong> ${th[next]} ในอีก ${formatMinutes(diff)}`;
+      text.innerHTML =
+        `<strong>เวลาถัดไป:</strong> ${th[next]} ในอีก ${formatMinutes(diff)}`;
     }
 
-    ['Fajr','Dhuhr','Asr','Maghrib','Isha'].forEach((p, i) => {
-      if (!cells[i]) return;
-      cells[i].textContent = cleanTime(times[p]);
-      cells[i].classList.toggle('next-time', p === next);
+    ['Fajr','Dhuhr','Asr','Maghrib','Isha'].forEach(p => {
+      const cell = document.querySelector(`[data-prayer="${p}"]`);
+      if (!cell) return;
+      cell.textContent = cleanTime(times[p]);
+      cell.classList.toggle('next-time', p === next);
     });
 
   } catch (e) {
@@ -153,8 +158,6 @@ async function initPrayerTimes() {
 // PRAYER TIME (MONTHLY)
 // ==============================
 async function initMonthlyPrayerTimes() {
-  if (!document.title.includes('ตารางเวลาละหมาด')) return;
-
   const body = document.getElementById('monthlyTableBody');
   const label = document.getElementById('currentMonth');
   if (!body || !label) return;

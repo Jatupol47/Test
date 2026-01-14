@@ -2,15 +2,24 @@
 <html lang="th">
 <head id="head"></head>
 <body>
-<div id="nav"></div>
+  <div id="nav"></div>
   <header class="hero">
     <div class="hero-content">
       <h1>ยินดีต้อนรับสู่ มัสยิดบ้านสมเด็จ</h1>
       <p>"ศูนย์รวมจิตใจและการเรียนรู้ศาสนาอิสลามในชุมชนบ้านสมเด็จ"</p>
     </div>
   </header>
-
-  <main class="container">
+  
+<div class="dashboard">
+  <aside class="sidebar">
+    <h4>Admin</h4>
+    <form class="login-form">
+      <input type="text" placeholder="Username">
+      <input type="password" placeholder="Password">
+      <button>Login</button>
+    </form>
+  </aside>
+  <main class="dashboard-content">
     <section id="about" class="about-section" aria-label="เกี่ยวกับมัสยิดบ้านสมเด็จ">
       <h2 style="text-align: center;"><u>โครงสร้างบุคลากร</u></h2>
       <div class="team-container">
@@ -132,9 +141,18 @@
             <a href="#" role="button">อ่านต่อ</a>
           </div>
         </article>
-      </div>
+                <article class="news-card">
+          <img src="../img/5.jpg" alt="โครงการซ่อมแซม7">
+          <div class="content">
+            <h3>โครงการซ่อมแซมมัสยิด</h3>
+            <p>ขอเชิญร่วมเป็นส่วนหนึ่งในการบำรุงรักษาสถานที่อันศักดิ์สิทธิ์ของเรา</p>
+            <a href="#" role="button">อ่านต่อ</a>
+          </div>
+        </article>
     </section>
+  </div>
   </main>
+</div>
 <div id="footer"></div>
 <button id="backToTop">↑</button>
 <script src="../script.js" defer></script>
