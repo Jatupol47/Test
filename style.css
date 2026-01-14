@@ -1,7 +1,31 @@
+/*ปรับขนาดหน้าจอเล็ก */
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer {
+    padding: 1.5rem;
+    text-align: center;
+  }
+}
+
 :root {
   --primary-color: #0b1b3a;
   --accent-color: #ffc60c;
   --light-bg: #e9e0d4;
+  --border-color: #ccc;
+  --background-light: #f5f5f5;
 }
 
 body {
@@ -305,12 +329,9 @@ footer h3, footer h4, footer p {
       background-color: var(--primary-color);
       color: white;
     }
-    tr:nth-child(even) { background-color: #f4f4f4; }
-    tr.highlight-day { background-color: var(--highlight-bg); }
-    .controls {
-      text-align: right;
-      margin: 1rem 0;
-  }
+    tr:nth-child(even) { 
+      background-color: #f4f4f4;
+    }
 
   .monthly-table table {
     width: 100%;
@@ -614,7 +635,6 @@ footer h3, footer h4, footer p {
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(8px);
       justify-content: center;
       align-items: center;
       z-index: 1000;
@@ -625,7 +645,7 @@ footer h3, footer h4, footer p {
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
-    .popup .close {
+    #closeBtn {
       position: absolute;
       top: 30px;
       right: 40px;
@@ -633,25 +653,3 @@ footer h3, footer h4, footer p {
       color: #fff;
       cursor: pointer;
     }
-
-/*ปรับขนาดหน้าจอเล็ก */
-@media (max-width: 768px) {
-  .hero {
-    height: 60vh;
-  }
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .hero p {
-    font-size: 1rem;
-  }
-  .nav-links {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .footer {
-    padding: 1.5rem;
-    text-align: center;
-  }
-}

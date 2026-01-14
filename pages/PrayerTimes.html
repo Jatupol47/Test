@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="th">
+<head id="head"></head>
+<body>
+<div id="nav"></div>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>ตารางเวลาละหมาดประจำวัน</h1>
+            <p>วันที่ปัจจุบัน: <span id="currentDate">กำลังโหลด...</span></p>
+            <p>ตรวจสอบเวลาละหมาดประจำวันเพื่อการปฏิบัติศาสนกิจที่ถูกต้อง</p>
+        </div>
+
+        <div class="highlight-widget">
+            <p><strong>เวลาถัดไป:</strong> กำลังคำนวณ...</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ซุบฮิ</th>
+                        <th>ดุฮ์ริ</th>
+                        <th>อัศริ</th>
+                        <th>มัฆริบ</th>
+                        <th>อิชาอ์</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>--:--</td>
+                        <td>--:--</td>
+                        <td>--:--</td>
+                        <td>--:--</td>
+                        <td>--:--</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </header>
+
+    <!-- Monthly table -->
+    <main class="container">
+        <section id="prayer" class="prayer-section">
+
+            <h2><u>ตารางเวลาละหมาดประจำเดือน</u></h2>
+            <p>เดือน : <span id="currentMonth">กำลังโหลด...</span></p>
+
+            <div id="monthlyTableContent" class="monthly-table">
+    <table>
+        <thead>
+            <tr>
+                <th>วันที่</th>
+                <th>ซุบฮิ</th>
+                <th>ตะวันขึ้น</th>
+                <th>ดุฮ์ริ</th>
+                <th>อัศริ</th>
+                <th>มัฆริบ</th>
+                <th>อิชาอ์</th>
+            </tr>
+        </thead>
+        <tbody id="monthlyTableBody">
+            <tr><td colspan="7">กำลังโหลด...</td></tr>
+        </tbody>
+    </table>
+</div>
+
+            <small>* ชูรุก (Shurooq) คือเวลาตะวันขึ้น</small>
+
+        </section>
+    </main>
+    <div id="footer"></div>
+<button id="backToTop">↑</button>
+<script src="../include.js" defer></script>
+<script src="../script.js" defer></script>
+</body>
+</html>
