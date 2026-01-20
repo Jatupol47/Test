@@ -1,25 +1,25 @@
 :root {
-  --primary-color: #0b1b3a;
-  --accent-color: #ffc60c;
-  --light-bg: #e9e0d4;
-  --border-color: #ccc;
-  --background-light: #f5f5f5;
+  --Navy-blue: #30364F;
+  --accent-color: #ACBAC4;
+  --Beige: #E1D9BC;
+  --Sea:#F0F0DB;
 }
 
 body {
-  background-color: #e9e0d4;
+  background: url('../img/bg.png') center/cover no-repeat;
   font-family: 'Prompt', 'Noto Sans Thai', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-h2{
-  color: var(--primary-color);
-  text-align: center;
+.container {
+  max-width: 1600px;
+  margin: auto;
 }
 
 button, a[role="button"] {
-  background-color: var(--accent-color);
-  color: var(--primary-color);
-  border: none;
+  background-color: var(--Navy-blue);
+  border: 1.5px solid;
   padding: 0.8rem 1.3rem;
   border-radius: 5px;
   text-decoration: none;
@@ -32,10 +32,10 @@ button:hover, a[role="button"]:hover {
 }
 /* แถบนำทางNav */
 nav {
-  background: #00001a;
-  background: linear-gradient(90deg,rgba(0, 0, 26, 1) 0%, rgba(9, 9, 121, 1) 31%, rgba(0, 212, 255, 1) 100%);
+  background: #30364F;
   color: white;
-  padding: 0rem 1.5rem; /* ปรับให้แถวเตี้ยลง */
+  padding: 0rem 1.5rem;
+  border: 2px solid #000000;
 }
 
 nav a {
@@ -73,7 +73,6 @@ nav a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: rgb(255, 255, 255);
   text-align: center;
   position: relative;
 }
@@ -102,7 +101,7 @@ nav a {
 .hero h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: var(--light-bg);
+  color: var(--Beige);
 }
 
 .dashboard {
@@ -113,10 +112,12 @@ nav a {
 
 /* Sidebar */
 .sidebar {
-  background: #00001a;
-  background: linear-gradient(90deg,rgba(0, 0, 26, 1) 0%, rgba(9, 9, 121, 1) 31%, rgba(0, 212, 255, 1) 100%);
+  background: #30364F;
   color: white;
   padding: 1.5rem;
+  border: #00001a;
+  border: 2px solid #000000;
+  border-radius: 0 20px 20px 0;
 }
 
 .sidebar h4 {
@@ -136,19 +137,28 @@ nav a {
 
 /* Main content */
 .dashboard-content {
-  background: #e9e0d4;
   padding: 1.5rem;
+}
+
+
+/* About section */
+.about-section {
+  margin-top: 80px;
+  background-color: var(--Beige);
+  border-radius: 15px;
+  padding: 3rem 2rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
 /* โครงสร้างบุคลากร */
 .team-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
   gap: 50px;
   justify-items: center;
   align-items: stretch;
-  margin-top: 40px;
-  padding: 2.5rem;
+  margin-top: 50px;
+  padding: 1rem;
 }
 
 /* กล่องทีมงาน */
@@ -159,7 +169,6 @@ nav a {
   overflow: hidden;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  image-rendering: optimizeQuality;
 }
 
 .member-card:hover {
@@ -173,7 +182,7 @@ nav a {
   font-size: 1.2rem;
   font-weight: bold;
   color: #fff;
-  letter-spacing: 1px;
+  letter-spacing: 5px;
 }
 
 /* ส่วนเนื้อหา */
@@ -205,15 +214,6 @@ nav a {
   background: linear-gradient(135deg, #28a745, #218838);
 }
 
-/* About section */
-.about-section {
-  margin-top: 80px;
-  background-color: rgb(202, 186, 158);
-  border-radius: 15px;
-  padding: 3rem 2rem;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-}
-
 .about-section .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -221,13 +221,16 @@ nav a {
   align-items: center;
 }
 
-.about-section img {
+.about-section .grid img {
+  width: 100%;
+  height: auto;
+  border: 3.5px solid var(--Navy-blue);
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .about-section h1 {
-  color: var(--primary-color);
+  color: #000000;
   margin-bottom: 0.5rem;
 }
 
@@ -242,6 +245,12 @@ nav a {
 }
 
 /* News grid */
+.news{
+  max-width: 100%;
+  margin: 30px auto;
+  padding: 5 1rem;
+}
+
 .news h1{
   margin-bottom: 2rem;
   text-align: center;
@@ -249,12 +258,12 @@ nav a {
 
 .news-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 1.5rem;
 }
 
 .news-card {
-  background: rgb(202, 186, 158);
+  background: var(--Beige);
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   overflow: hidden;
@@ -266,131 +275,157 @@ nav a {
   object-fit: cover;
 }
 
+.teachings{
+  margin-top: 80px;
+  background-color: var(--Beige);
+  border-radius: 15px;
+  padding: 3rem 2rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
 /* Footer */
 footer h3, footer h4, footer p {
   color: #ffffff;
 }
 
 .footer {
-  background: #00001a;
-  background: linear-gradient(90deg,rgba(0, 0, 26, 1) 0%, rgba(9, 9, 121, 1) 31%, rgba(0, 212, 255, 1) 100%);
-  color: var(--light-bg);
+  background: var(--Navy-blue);
+  color: var(--Beige);
   padding: 1.5rem 11rem;
   margin-top: 1rem;
 }
 
 .footer a {
-  color: var(--accent-color);
+  color: var(--Beige);
 }
 
 .text-box {
   text-align: center;
   margin-top: 1rem;
   background-color: #ffffff;
-  color: var(--primary-color);
+  color: #d4af37;
   padding: 1rem;
   border-radius: 20px;
-  border: 6px solid #d4af37; /* แถบสีทองด้านซ้าย */
+  border: 6px solid #d4af37;
   margin: 2rem auto;
+}
+
+
+/* วิดีโอฝัง */
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+
+.video-container iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* prayer times page styles */
 .prayer-section {
-  max-width: 900px;
+  max-width: 1500px;
   margin: 40px auto;
   padding: 20px;
   border-radius: 10px;
-  background:rgba(9, 68, 141, 0.226);
+  background-color: var(--Beige);
   display: block;
-  border: 5px solid rgba(255,255,255,0.3);
+  border: 5px solid rgb(0, 0, 0);
 }
 
- header h1, header p, .highlight-widget { position: relative; z-index: 2; }
+header h1, header p, .highlight-widget { position: relative; z-index: 2; }
 .highlight-widget {
-      background: rgba(9, 68, 141, 0.226);
-      border: 5px solid rgba(255,255,255,0.3);
-      border-radius: 8px;
-      padding: 1rem;
-      display: inline-block;
-      color: white;
-      margin-top: 1rem;
-    }
+  background: var(--Navy-blue);
+  border: 5px solid rgb(0, 0, 0);
+  border-radius: 8px;
+  padding: 1rem;
+  display: inline-block;
+  color: #000000;
+  margin-top: 1rem;
+}
 .highlight-widget table { width: 100%; text-align: center; color: white; }
-    .highlight-widget td, .highlight-widget th { padding: 0.3rem 0.5rem; }
-    .next-time {
-      background-color: var(--accent-color);
-      color: var(--primary-color);
-      border-radius: 5px;
-      animation: blink 1.5s infinite alternate;
-    }
-    @keyframes blink { from {opacity: 1;} to {opacity: 0.6;} }
-    .monthly-table {
-      overflow-x: auto;
-      margin-top: 2rem;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 0.6rem;
-      text-align: center;
-    }
-    th {
-      background-color: var(--primary-color);
-      color: white;
-    }
-    tr:nth-child(even) { 
-      background-color: #f4f4f4;
-    }
+.highlight-widget td, .highlight-widget th { padding: 0.3rem 0.5rem; }
+.next-time {
+  background-color: var(--Navy-blue);
+  color: var(--Beige);
+  border-radius: 5px;
+  animation: blink 1.5s infinite alternate;
+}
+@keyframes blink { from {opacity: 1;} to {opacity: 0.6;} }
+.monthly-table {
+  overflow-x: auto;
+  margin-top: 2rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  border: 2px solid #000000;
+  padding: 0.8rem;
+  text-align: center;
+}
+th {
+  background-color: var(--primary-color);
+  color: white;
+}
+tr:nth-child(even) { 
+  background-color: #f4f4f4;
+}
 
-  .monthly-table table {
-    width: 100%;
-    text-align: center;
-    font-size: 0.95rem;
+.monthly-table table {
+  width: 100%;
+  text-align: center;
+  font-size: 0.95rem;
 }
 
 .monthly-table tbody tr:hover {
-    background: #f2f2f2;
+  background: #f3dbdb;
 }
 
 .today-highlight {
-    background: #fffae6 !important;
-    font-weight: bold;
-    border-left: 4px solid #ffb300;
+  background: #fffae6 !important;
+  font-weight: bold;
+  border-left: 10px solid #30364F;
+  border-right: 10px solid #30364F;
 }
-  
+
 /* บริจาค */
 .donation-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
 }
 
 .section-title {
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 10px;
-    margin-top: 40px;
-    margin-bottom: 25px;
-    font-size: 1.8em;
-    text-align: center;
+  color: #000000;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 10px;
+  margin-top: 40px;
+  margin-bottom: 25px;
+  font-size: 1.8em;
+  text-align: center;
 }
 
 .section-title-head {
-    color: var(--light-bg);
-    font-size: 2.5em;
-    text-align: center;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 0 var(--accent-color);
+  color: var(--Beige);
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 1.5px 1px 0 var(--accent-color);
 }
 
 /* ส่วนที่ 1: ยอดรวมสะสม */
 .total-section {
-  background: #00001a;
-  background: linear-gradient(90deg,rgba(0, 0, 26, 1) 0%, rgba(9, 9, 121, 1) 31%, rgba(0, 212, 255, 1) 100%);
+  background: var(--Navy-blue);
   text-align: center;
   padding: 100px;
   margin: 20px 0;
@@ -398,89 +433,89 @@ footer h3, footer h4, footer p {
 }
 
 .current-total {
-    font-size: 3.5em;
-    font-weight: bold;
-    color: var(--primary-color);
-    margin: 10px 0;
-    text-shadow: 1px 1px 0 var(--accent-color);
+  font-size: 3.5em;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin: 10px 0;
+  text-shadow: 1px 1px 0 var(--accent-color);
 }
 
 .description {
-    color: #555;
-    font-size: 1.1em;
+  color: #555;
+  font-size: 1.1em;
 }
 
 /* ส่วนที่ 2: ช่องทางการโอนเงิน */
 .payment-card {
-    background-color: #FFF;
-    border: 1px solid var(--border-color);
-    padding: 25px;
-    border-radius: 8px;
-    text-align: center;
+  background-color: #FFF;
+  border: 1px solid var(--border-color);
+  padding: 25px;
+  border-radius: 8px;
+  text-align: center;
 }
 
 .card-title {
-    color: var(--primary-color);
-    font-size: 1.4em;
-    margin-bottom: 15px;
+  color: var(--primary-color);
+  font-size: 1.4em;
+  margin-bottom: 15px;
 }
 
 .qr-image {
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-    margin-bottom: 15px;
-    border: 5px solid var(--border-color);
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  margin-bottom: 15px;
+  border: 5px solid var(--border-color);
 }
 
 .account-info {
-    font-size: 1.1em;
-    margin: 5px 0;
+  font-size: 1.1em;
+  margin: 5px 0;
 }
 
 .warning {
-    color: red;
-    font-weight: bold;
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px dashed red;
-    border-radius: 5px;
+  color: red;
+  font-weight: bold;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px dashed red;
+  border-radius: 5px;
 }
 
 /* ปุ่มสลับธนาคาร */
 .bank-switcher button {
-    background-color: var(--background-light);
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    padding: 8px 15px;
-    margin: 5px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: all 0.3s;
+  background-color: var();
+  color: var(--Beige);
+  border: 2px solid var(--accent-color);
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s;
 }
 
 .bank-switcher button.active,
 .bank-switcher button:hover {
-    background-color: var(--primary-color);
-    color: white;
+  background-color: var(--Navy-blue);
+  color: white;
 }
 
 /* ส่วนที่ 3: แบบฟอร์มยืนยัน */
 .donation-form {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    background-color: #FFF;
-    padding: 30px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  background-color: #FFF;
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
 }
 
 .form-group input[type="text"],
@@ -488,47 +523,43 @@ footer h3, footer h4, footer p {
 .form-group input[type="tel"],
 .form-group select,
 .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    box-sizing: border-box; /* สำคัญเพื่อให้ padding ไม่ขยายความกว้าง */
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  box-sizing: border-box; /* สำคัญเพื่อให้ padding ไม่ขยายความกว้าง */
 }
 
 /* ปุ่มส่งแบบฟอร์ม */
 .submit-button {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 10px;
-}
-
-.submit-button:hover {
-    background-color: #004d00;
+  background-color: var(--Navy-blue);
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
 }
 
 .reset-button {
-    background-color: #ccc;
-    color: #333;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 10px;
+  background-color: #ccc;
+  color: #333;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
 }
 
 /* ปรับให้รองรับไฟล์อัปโหลดในรูปแบบที่สวยงามขึ้น */
 .file-upload-group input[type="file"] {
-    border: 1px solid var(--primary-color);
-    padding: 10px;
-    background-color: #e6ffe6;
+  border: 1px solid var(--primary-color);
+  padding: 10px;
+  background-color: #e6ffe6;
 }
 /* Pop up ใบลดหย่อน */
 .modal {
@@ -542,8 +573,8 @@ footer h3, footer h4, footer p {
   justify-content: center;
   align-items: center;
   z-index: 999;
-  overflow-y: auto;  /* ✅ ให้หน้าจอเลื่อนขึ้นลงได้ */
-  padding: 1rem;     /* ✅ กันขอบให้ไม่ชนขอบจอ */
+  overflow-y: auto;
+  padding: 1rem;     
 }
 .modal.open {
   display: flex;
@@ -570,8 +601,8 @@ footer h3, footer h4, footer p {
   bottom: 5px;
   right: 25px;
   background: var(--accent-color);
-  color: var(--primary-color);
-  border-radius: 50%;
+  color: var(--Navy-blue);
+  border-radius: 50px;
   width: 50px;
   height: 50px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -591,28 +622,27 @@ footer h3, footer h4, footer p {
 
 /* NEWS */
 .news-section {
-  margin-top: 40px;
-  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 50px;
+  max-width: 1600px;
+  margin: 35px auto;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: var(--Beige);
 }
-
 .article-image {
-  display: block;
-  margin: auto;   /* จัดกึ่งกลาง */
-  width: 50vw;
-  height: 500px;
+  width: 100%;
+  height: 350px;
   object-fit: cover;
-  border: 5px solid var(--accent-color);
-  border-radius: 5%;
 }
 .news-article {
-  background: #f9f9f9;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 .news-article h2{
-  color: var(--primary-color);
+  color: #000000;
   text-align: center;
   text-decoration: underline;
 }
@@ -623,50 +653,75 @@ footer h3, footer h4, footer p {
 
 /* Gallery */
 .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem 0;
-    }
-    .gallery img {
-      width: 100%;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.gallery img:hover {
+  transform: scale(1.05);
+}
 
-    /* Popup overlay */
-    .popup {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .popup img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    }
-    #closeBtn {
-      position: absolute;
-      top: 30px;
-      right: 40px;
-      font-size: 2rem;
-      color: #fff;
-      cursor: pointer;
-    }
+/* Popup overlay */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.popup img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+#closeBtn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
 
-    /*ปรับขนาดหน้าจอเล็ก */
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 40px 0;
+}
+
+.pagination a {
+  padding: 8px 14px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #000;
+}
+
+.pagination a:hover {
+  background: #eee;
+}
+.pagination a.active {
+  background: #333;
+  color: #fff;
+  border-color: #333;
+}
+
+/*ปรับขนาดหน้าจอเล็ก */
 @media (max-width: 768px) {
   .hero {
     height: 60vh;
@@ -681,7 +736,7 @@ footer h3, footer h4, footer p {
     flex-direction: column;
     gap: 10px;
   }
-
+  
   .footer {
     padding: 1.5rem;
     text-align: center;
@@ -689,31 +744,31 @@ footer h3, footer h4, footer p {
 }
 
 @media (max-width: 768px) {
-
+  
   .dashboard {
     grid-template-columns: 1fr;
   }
-
+  
   .sidebar {
     order: 2;
   }
-
+  
   .dashboard-content {
     order: 1;
   }
-
+  
   .hero {
     height: 60vh;
   }
-
+  
   .hero h1 {
     font-size: 2rem;
   }
-
+  
   .hero p {
     font-size: 1rem;
   }
-
+  
   .footer {
     padding: 1.5rem;
     text-align: center;

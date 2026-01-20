@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMonthlyPrayerTimes();
   initCurrentDate();
   initGallery();
+  onYouTubeIframeAPIReady();
 });
 // ==============================
 // QR SWITCHER
@@ -237,3 +238,19 @@ function initGallery() {
   close.addEventListener('click', () => popup.style.display = 'none');
   popup.addEventListener('click', e => e.target === popup && (popup.style.display = 'none'));
 }
+
+// ==============================
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '300',
+          width: '500',
+          videoId: 'dQw4w9WgXcQ', // วิดีโอเริ่มต้น
+        });
+      }
+
+      document.querySelectorAll('.video-buttons button').forEach(button => {
+        button.addEventListener('click', () => {
+          const videoId = button.getAttribute('data-video');
+          player.loadVideoById(videoId);
+        });
+      }); 

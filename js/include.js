@@ -9,4 +9,5 @@ document.addEventListener("DOMContentLoaded", () => {
   loadHTML("head", "../partials/head.html");
   loadHTML("nav", "../partials/nav.html");
   loadHTML("footer", "../partials/footer.html");
+  loadHTML("pagination", "../partials/pagination.html");
 });
